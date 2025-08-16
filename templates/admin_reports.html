@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block title %}Reports{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<h2>Reports</h2>
+
+<ul class="list-group w-50">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Total Seats
+    <span class="badge bg-primary rounded-pill">{{ total_seats }}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Total Reservations
+    <span class="badge bg-primary rounded-pill">{{ total_reservations }}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Upcoming Reservations
+    <span class="badge bg-primary rounded-pill">{{ upcoming_reservations }}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Most Booked Seat
+    <span class="badge bg-primary rounded-pill">
+      {% if most_booked %}
+        {{ most_booked[0] }} ({{ most_booked[1] }})
+      {% else %}
+        None
+      {% endif %}
+    </span>
+  </li>
+</ul>
+{% endblock %}

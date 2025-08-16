@@ -1,0 +1,425 @@
+/* General Styles */
+
+.dashboard-card {
+  border: 1px solid #b4d4d4;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #c4dff9;
+  box-shadow: 0 2px 10px #003a75;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  padding: 1rem;
+  background-color: #E6F0FA; 
+  color: #333; 
+  margin: 0;
+}
+
+/* Flash Messages */
+.flashes {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.flash {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(227, 6, 19, 0.15);
+}
+
+.flash.success {
+  background: #fbeaea;
+  color: #a10e0f;
+  border-left: 5px solid #e30613;
+}
+
+.flash.danger {
+  background: #ffe5e5;
+  color: #7a0000;
+  border-left: 5px solid #b30000;
+}
+
+.flash.warning {
+  background: #fff0f0;
+  color: #a13939;
+  border-left: 5px solid #e68a8a;
+}
+
+/* Form Styles */
+.login-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background: #ffffff; /* Keep white for clarity */
+  box-shadow: 0 6px 20px rgba(227, 6, 19, 0.1);
+  border-radius: 12px;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #E30613; /* SLT primary red for titles */
+  font-size: 2rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #555;
+}
+
+.form-input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #E30613; /* SLT red on focus */
+  box-shadow: 0 0 6px rgba(227, 6, 19, 0.5);
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #E30613, #a1000f);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(227, 6, 19, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+  background: linear-gradient(135deg, #a1000f, #E30613);
+  box-shadow: 0 6px 20px rgba(161, 0, 15, 0.7);
+  outline: none;
+}
+
+/* Login Page Layout */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.login-card {
+  background: #D3DDE4;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px #0047AB;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Custom Primary Button */
+.custom-btn {
+  background-color: #E30613;
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #a1000f;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem 2rem;
+  }
+}
+/* styles.css */
+/* styles.css */
+/* SLT Mobitel Navbar Styling - THINNER HEADER */
+.navbar {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: linear-gradient(135deg, #0056A6, #003a75) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    border-bottom: 1px solid #bee319; /* Thinner border */
+    min-height: 20px; 
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem; /* Slightly smaller */
+    padding: 0.2rem 0; /* Reduced padding */
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    font-size: 1rem; /* Slightly smaller */
+    padding: 0.4rem 0.8rem !important; /* Reduced padding */
+    transition: all 0.2s ease;
+}
+
+/* Keep other navbar styles the same */
+.nav-link:hover,
+.nav-link:focus {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-menu {
+    background-color: #b4d4d4;
+    border: 1px solid #0056A6;
+    border-radius: 6px; /* Slightly smaller */
+    box-shadow: 0 4px 10px rgba(0, 86, 166, 0.15); /* Reduced shadow */
+}
+
+.dropdown-item {
+    padding: 0.5rem 1.2rem; /* Slightly smaller */
+}
+
+/* SLT Mobitel Footer Styling */
+footer {
+    background: linear-gradient(135deg, #0056A6, #003a75) !important;
+    border-top: 2px solid #bee319; /* Thinner border */
+    padding: 1rem 0 !important; /* Reduced padding */
+    margin-top: 2rem !important; /* Reduced top margin */
+    max-width:100% !important
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        padding: 0.5rem; /* Reduced padding */
+    }
+    
+    .nav-link {
+        padding: 0.5rem !important; /* Reduced padding */
+    }
+}
+
+/* ===== BODY BACKGROUND ===== */
+body {
+    background-image: url('../images/slt_bg_pattern.jpg'); /* Update with your image filename */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.10); /* Semi-transparent white overlay */
+    z-index: -1;
+}
+
+/* ===== CONTENT CONTAINER ===== */
+.container {
+    background-color: rgba(255, 255, 255, 0.20); /* Slightly transparent white */
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensures content appears above overlay */
+    z-index: 1;
+}
+
+.container_body{
+    background-color: rgba(255, 255, 255, 0.60); /* Slightly transparent white */
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensures content appears above overlay */
+    z-index: 1;
+}
+
+/* ===== Enhanced Header & Footer Container ===== */
+.container_HF {
+    background: linear-gradient(135deg, rgba(0, 71, 171, 0.9), rgba(0, 140, 69, 0.85)); /* SLT blue-green gradient */
+    border-radius: 8px;
+    padding: 20px 30px;
+    margin: 15px auto;
+    box-shadow: 0 4px 20px rgba(0, 71, 171, 0.3), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.2); /* Dual shadow effect */
+    position: relative;
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    color: white;
+}
+
+.container_HF {
+    max-width: 1200px; /* or any preferred max width */
+    width: 100%;       /* take full width of parent */
+}
+.container_HF {
+    padding: 10px 30px;
+    margin: 10px auto;
+    max-height: 80px; /* optional */
+    overflow: hidden; /* optional */
+}
+
+.header .container_HF,
+.footer .container_HF {
+    padding: 10px 30px;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: none;
+}
+
+.container_HF h1, 
+.container_HF h2, 
+.container_HF h3 {
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.container_HF p, 
+.container_HF a {
+    margin: 0;
+    line-height: 1.3;
+}
+
+
+
+/* ===== Header Specific Styles ===== */
+.header .container_HF {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    box-shadow: 0 2px 15px rgba(0, 71, 171, 0.4);
+}
+
+/* ===== Content Styling ===== */
+.container_HF h1, 
+.container_HF h2, 
+.container_HF h3 {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+}
+
+.container_HF p, 
+.container_HF a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.container_HF a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ===== SLT Branding Elements ===== */
+.container_HF::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #bee319, #008C45); /* SLT accent colors */
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+    .container_HF {
+        padding: 15px 20px;
+        margin: 10px auto ;
+        border-radius: 5px;
+    }
+    
+    .header .container_HF,
+    .footer .container_HF {
+        border-radius: 0;
+    }
+}
+
+/* ===== TEXT ENHANCEMENTS ===== */
+h1, h2, h3, h4, h5, h6 {
+    color: #0767a2; /* SLT blue for headings */
+}
+
+p, td, li {
+    color: #000000; /* SLT dark blue for text */
+}
+
+/* ===== ENSURE NAVBAR/FOOTER VISIBILITY ===== */
+.navbar, footer {
+    position: relative;
+    width: 100%;
+    z-index: 10; /* Higher than overlay */
+}
+
+/* Subtle background animation */
+@keyframes bgZoom {
+    0% { background-size: 110%; }
+    100% { background-size: 100%; }
+}
+
+body {
+    animation: bgZoom 20s infinite alternate;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body::before {
+        background: rgba(32, 47, 59, 0.92); /* SLT dark blue */
+    }
+    
+    .container {
+        background: rgba(32, 47, 59, 0.85);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: #D3DDE4; /* Light blue-gray */
+    }
+    
+    p, td, li {
+        color: #FFFFFF;
+    }
+}
+

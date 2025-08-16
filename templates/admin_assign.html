@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block title %}Assign Seat{% endblock %}
+{% block content %}
+<h2>Assign Seat to User</h2>
+
+<form method="post" novalidate>
+  {{ form.hidden_tag() }}
+
+  <div class="mb-3">
+    <label for="user_id" class="form-label">Select User</label>
+    <select name="user_id" id="user_id" class="form-select" required>
+      <option value="" disabled selected>Select a user</option>
+      {% for user in users %}
+        <option value="{{ user.id }}">{{ user.name }} ({{ user.email }})</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    {{ form.seat_id.label(class="form-label") }}
+    {{ form.seat_id(class="form-select") }}
+    {% for error in form.seat_id.errors %}
+      <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="mb-3">
+    {{ form.date.label(class="form-label") }}
+    {{ form.date(class="form-control") }}
+    {% for error in form.date.errors %}
+      <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="mb-3">
+    {{ form.time_slot.label(class="form-label") }}
+    {{ form.time_slot(class="form-select") }}
+    {% for error in form.time_slot.errors %}
+      <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Assign Seat</button>
+  <a href="{{ url_for('admin_reservations') }}" class="btn btn-secondary ms-2">Back to Reservations</a>
+</form>
+{% endblock %}

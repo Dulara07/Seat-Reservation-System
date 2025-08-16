@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<h2>Admin Dashboard</h2>
+
+<div class="row">
+  <div class="col-md-4 dashboard-card">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-header">Total Reservations</div>
+      <div class="card-body">
+        <h3 class="card-title">{{ total_reservations }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 dashboard-card" >
+    <div class="card text-white bg-success mb-3">
+      <div class="card-header">Today's Reservations</div>
+      <div class="card-body">
+        <h3 class="card-title">{{ today_reservations }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Seat Usage</h3>
+<table class="table table-striped w-50">
+  <thead>
+    <tr>
+      <th>Seat Number</th>
+      <th>Reservations Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for seat_number, count in seat_usage %}
+    <tr>
+      <td>{{ seat_number }}</td>
+      <td>{{ count }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

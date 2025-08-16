@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block title %}Manage Reservations{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<h2>Manage Reservations</h2>
+
+<form method="get" class="row g-3 mb-3 align-items-end w-50">
+  <div class="col-auto">
+    <label for="date" class="form-label">Filter by Date</label>
+    <input type="date" id="date" name="date" class="form-control" value="{{ request.args.get('date', '') }}">
+  </div>
+  <div class="col-auto">
+    <label for="user" class="form-label">Filter by User</label>
+    <input type="text" id="user" name="user" class="form-control" placeholder="User name" value="{{ request.args.get('user', '') }}">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </div>
+</form>
+
+{% if reservations %}
+<table class="table table-striped align-middle">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Seat</th>
+      <th>Date</th>
+      <th>Time Slot</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for res in reservations %}
+    <tr>
+      <td>{{ res.user.name }}</td>
+      <td>{{ res.seat.seat_number }} - {{ res.seat.location }}</td>
+      <td>{{ res.date.strftime('%Y-%m-%d') }}</td>
+      <td>{{ res.time_slot }}</td>
+      <td>{{ res.status }}</td>
+      <td>
+        {% if res.status == 'active' %}
+        <form method="post" style="display:inline;">
+          <input type="hidden" name="res_id" value="{{ res.id }}">
+          <button type="submit" name="action" value="cancel" class="btn btn-sm btn-danger" onclick="return confirm('Cancel this reservation?');">Cancel</button>
+        </form>
+        {% else %}
+          <span class="text-muted">No actions</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No reservations found.</p>
+{% endif %}
+{% endblock %}

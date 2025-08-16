@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block title %}Manage Seats{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<h2>Manage Seats</h2>
+
+<!-- Add Seat Form -->
+<form method="post" class="row g-3 mb-4">
+  <input type="hidden" name="action" value="add" />
+  <div class="col-md-3">
+    <input type="text" name="seat_number" class="form-control" placeholder="Seat Number" required>
+  </div>
+  <div class="col-md-4">
+    <input type="text" name="location" class="form-control" placeholder="Location">
+  </div>
+  <div class="col-md-2">
+    <button type="submit" class="btn btn-primary">Add Seat</button>
+  </div>
+</form>
+
+<table class="table table-bordered align-middle">
+  <thead>
+    <tr>
+      <th>Seat Number</th>
+      <th>Location</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for seat in seats %}
+    <tr>
+      <form method="post" class="d-flex align-items-center">
+        <input type="hidden" name="seat_id" value="{{ seat.id }}">
+        <td><input type="text" name="seat_number" value="{{ seat.seat_number }}" class="form-control form-control-sm"></td>
+        <td><input type="text" name="location" value="{{ seat.location }}" class="form-control form-control-sm"></td>
+        <td>
+          <select name="status" class="form-select form-select-sm">
+            <option value="available" {% if seat.status == 'available' %}selected{% endif %}>Available</option>
+            <option value="unavailable" {% if seat.status == 'unavailable' %}selected{% endif %}>Unavailable</option>
+          </select>
+        </td>
+        <td>
+          <button type="submit" name="action" value="edit" class="btn btn-sm btn-warning me-1">Update</button>
+          <button type="submit" name="action" value="delete" class="btn btn-sm btn-danger" onclick="return confirm('Delete this seat?');">Delete</button>
+        </td>
+      </form>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

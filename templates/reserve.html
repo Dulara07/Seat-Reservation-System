@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block title %}Reserve Seat {{ seat.seat_number }}{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<h2>Reserve Seat: {{ seat.seat_number }} - {{ seat.location }}</h2>
+
+<form method="post" novalidate>
+  {{ form.hidden_tag() }}
+
+  <div class="mb-3">
+    {{ form.seat_id.label(class="form-label") }}
+    {{ form.seat_id(class="form-select") }}
+    {% for error in form.seat_id.errors %}
+      <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="mb-3">
+    {{ form.date.label(class="form-label") }}
+    {{ form.date(class="form-control") }}
+    {% for error in form.date.errors %}
+      <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="mb-3">
+    {{ form.time_slot.label(class="form-label") }}
+    {{ form.time_slot(class="form-select") }}
+    {% for error in form.time_slot.errors %}
+      <div class="text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Confirm Reservation</button>
+  <a href="{{ url_for('seats') }}" class="btn btn-secondary ms-2">Back to Seats</a>
+</form>
+{% endblock %}

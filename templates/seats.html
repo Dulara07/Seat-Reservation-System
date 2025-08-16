@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block title %}Available Seats{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<h2>Available Seats on {{ qdate.strftime('%Y-%m-%d') }}</h2>
+
+<form method="get" class="mb-3 w-25">
+  <label for="date" class="form-label">Select Date:</label>
+  <input type="date" id="date" name="date" value="{{ qdate.strftime('%Y-%m-%d') }}" class="form-control" onchange="this.form.submit()" />
+</form>
+
+{% if seats %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Seat Number</th>
+      <th>Location</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for seat in seats %}
+    <tr>
+      <td>{{ seat.seat_number }}</td>
+      <td>{{ seat.location }}</td>
+      <td>{{ seat.status }}</td>
+      <td><a href="{{ url_for('reserve', seat_id=seat.id) }}?date={{ qdate.strftime('%Y-%m-%d') }}" class="btn btn-sm btn-success">Reserve</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No seats available on this date.</p>
+{% endif %}
+{% endblock %}
